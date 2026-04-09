@@ -1,0 +1,420 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: #201f1e;
+  background: #faf9f8;
+  width: 720px;
+  max-height: 560px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #0078d4;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.header-icon { width: 16px; height: 16px; }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-icon {
+  background: none;
+  border: none;
+  color: #605e5c;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-icon:hover { background: #edebe9; color: #201f1e; }
+
+.btn-refresh.spinning svg,
+#btn-refresh-all.spinning svg {
+  animation: spin 0.7s linear infinite;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#btn-add-account,
+#btn-refresh-all {
+  color: #fff;
+}
+#btn-add-account:hover,
+#btn-refresh-all:hover { background: rgba(255,255,255,0.2); }
+
+
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.btn-primary:hover { background: #106ebe; }
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: #a19f9d;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+.btn-remove:hover { color: #d13438; }
+
+/* ── Main / scroll ───────────────────────────────────────── */
+main {
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ── State messages ──────────────────────────────────────── */
+.state-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 36px 24px;
+  color: #605e5c;
+  text-align: center;
+}
+
+.hidden { display: none !important; }
+
+/* ── Spinner ─────────────────────────────────────────────── */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #edebe9;
+  border-top-color: #0078d4;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Account section ─────────────────────────────────────── */
+.account-section { border-bottom: 1px solid #edebe9; }
+.account-section:last-child { border-bottom: none; }
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f3f2f1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.account-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.account-info { flex: 1; min-width: 0; }
+
+.account-email {
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #201f1e;
+  text-decoration: none;
+}
+.account-email:hover { text-decoration: underline; color: #0078d4; }
+
+.account-badge {
+  font-size: 11px;
+  color: #605e5c;
+}
+
+.account-badge.has-unread {
+  background: #0078d4;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-weight: 600;
+}
+
+.reauth-warning {
+  font-size: 11px;
+  color: #d13438;
+  padding: 4px 12px 4px 44px;
+  background: #fde7e9;
+}
+
+/* ── Email list ──────────────────────────────────────────── */
+.email-list { list-style: none; }
+
+.email-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: default;
+  transition: background 0.1s;
+  border-bottom: 1px solid #f3f2f1;
+  position: relative;
+}
+.email-item:last-child { border-bottom: none; }
+.email-item:hover { background: #f3f2f1; }
+
+.email-content { flex: 1; min-width: 0; cursor: pointer; }
+
+/* ── Email action buttons (shown on hover) ───────────────────────────────────*/
+.email-actions {
+  display: none;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.email-item:hover .email-actions { display: flex; }
+
+.email-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #605e5c;
+  padding: 3px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: background 0.1s, color 0.1s;
+}
+.email-action-btn:hover { background: #edebe9; color: #0078d4; }
+.email-action-btn.action-delete:hover { color: #d13438; }
+.email-action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.unread-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0078d4;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.unread-dot.read { background: transparent; }
+
+.email-content { flex: 1; min-width: 0; }
+
+.email-subject {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+.email-item.is-read .email-subject { font-weight: 400; color: #605e5c; }
+
+.email-meta {
+  display: flex;
+  gap: 4px;
+  font-size: 11px;
+  color: #a19f9d;
+  margin-top: 2px;
+}
+
+.email-from {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.email-time { flex-shrink: 0; }
+
+.no-emails {
+  padding: 12px 12px 12px 44px;
+  color: #a19f9d;
+  font-size: 12px;
+}
+
+/* ── Open inbox link ─────────────────────────────────────── */
+.open-inbox-row {
+  padding: 6px 12px 8px 44px;
+}
+
+.open-inbox-link {
+  font-size: 12px;
+  color: #0078d4;
+  text-decoration: none;
+  cursor: pointer;
+}
+.open-inbox-link:hover { text-decoration: underline; }
+
+/* ── Email Detail View ──────────────────────────────────────── */
+#email-detail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  width: 720px;
+}
+
+#detail-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #edebe9;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+#btn-back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #323130;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#btn-back:hover { background: #edebe9; }
+
+#detail-meta {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+#detail-subject {
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#detail-from,
+#detail-date {
+  font-size: 11px;
+  color: #605e5c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#detail-header-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+#detail-header-actions button,
+#detail-header-actions a {
+  background: none;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  padding: 4px 7px;
+  font-size: 11px;
+  color: #323130;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+#detail-header-actions button:hover,
+#detail-header-actions a:hover { background: #edebe9; }
+
+#detail-body-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+#detail-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+#detail-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 12px;
+  color: #605e5c;
+}
+
+/* ── Detail footer (Reply / Reply All / Forward) ──────────────── */
+#detail-footer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid #edebe9;
+  background: #faf9f8;
+  flex-shrink: 0;
+}
+
+.detail-compose-btn {
+  flex: 1;
+  text-align: center;
+  padding: 7px 0;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #323130;
+  text-decoration: none;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.detail-compose-btn:hover {
+  background: #edebe9;
+  color: #0078d4;
+  border-color: #0078d4;
+}
