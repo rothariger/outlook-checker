@@ -1,10 +1,10 @@
-# Privacy Policy — Checker Plus for Outlook
+# Privacy Policy — Outlook Checker
 
 _Last updated: April 9, 2026_
 
 ## Overview
 
-Checker Plus for Outlook is a Chrome browser extension that allows users to monitor their Microsoft 365 and Outlook email accounts from the Chrome toolbar. This policy explains what data is accessed, how it is used, and what is never done with it.
+Outlook Checker is a Chrome browser extension that allows users to monitor their Microsoft 365 and Outlook email accounts from the Chrome toolbar. This policy explains what data is accessed, how it is used, and what is never done with it.
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Checker Plus for Outlook",
+  "name": "Outlook Checker",
   "version": "1.0.0",
   "description": "Check your Outlook/Microsoft 365 emails without leaving your browser.",
   "permissions": ["storage", "alarms", "identity", "notifications"],

@@ -1,4 +1,4 @@
-# Checker Plus for Outlook
+# Outlook Checker
 
 A Chrome extension (Manifest V3) inspired by **Checker Plus for Gmail**, but for **Outlook / Microsoft 365**.
 
@@ -29,7 +29,7 @@ A Chrome extension (Manifest V3) inspired by **Checker Plus for Gmail**, but for
 
 1. Go to [Azure Portal → App registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 2. Click **New registration**
-   - **Name:** `Checker Plus for Outlook` (or any name you prefer)
+   - **Name:** `Outlook Checker` (or any name you prefer)
    - **Supported account types:** *Accounts in any organizational directory and personal Microsoft accounts*
    - **Redirect URI:** leave blank for now
 3. Click **Register** and copy the **Application (client) ID**
